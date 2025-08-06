@@ -1,0 +1,446 @@
+/* Base styles from the original stylesheet */
+html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #000000;
+    color: white;
+    overflow-x: hidden;
+    margin: 0;
+    cursor: default;
+}
+
+.page-wrapper {
+    position: relative;
+    overflow-x: hidden;
+    isolation: isolate;
+    padding-top: 120px;
+    /* To account for fixed header */
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    z-index: 100;
+    background: rgba(15, 15, 15, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+
+.logo {
+    justify-self: start;
+}
+
+.logo-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #f0ead6;
+    border-radius: 50%;
+}
+
+.main-nav {
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-button {
+    position: relative;
+    overflow: hidden;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+    white-space: nowrap;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-nav .nav-button:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.contact-button {
+    justify-self: end;
+}
+
+.contact-button .nav-button:hover {
+    background-color: #222;
+    border-color: #555;
+    color: white;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple-effect 1.5s linear;
+}
+
+@keyframes ripple-effect {
+    to {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+
+.main-site-footer {
+    background-color: #0a0a0a;
+    padding: 40px 3rem 40px;
+    border-top: 1px solid #222;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.footer-column {
+    position: relative;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.footer-column h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #f0ead6;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-column p {
+    max-width: 200px;
+    margin: 0;
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.footer-column ul a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-column ul a:hover {
+    color: white;
+}
+
+.footer-column .footer-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.footer-arrow {
+    transition: transform 0.3s;
+}
+
+.footer-column h3:hover .footer-arrow {
+    transform: translateX(5px);
+}
+
+.sub-footer {
+    border-top: 1px solid #222;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.sub-footer-brand {
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    line-height: 1;
+    padding-bottom: 4px;
+}
+
+.sub-footer-copy {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.sub-footer-location {
+    color: #888;
+    font-size: 0.9rem;
+    padding-right: 2.5rem;
+}
+
+/* New styles for the contact page */
+.contact-container {
+    padding: 60px 3rem 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5rem;
+}
+
+.contact-hero {
+    margin-bottom: 4rem;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin: 0 0 1.5rem 0;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #aaa;
+    max-width: 700px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.form-group {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #222;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 1rem;
+    color: #f0ead6;
+    font-size: 1.2rem;
+}
+
+.form-group label span {
+    color: #555;
+    margin-right: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #aaa;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    color: white;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.submit-button {
+    background-color: #f0ead6;
+    color: #0a0a0a;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #fff;
+}
+
+.contact-sidebar {
+    padding-top: 1rem;
+}
+
+.sidebar-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #8a2be2;
+    /* Purple */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.logo-initial {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.sidebar-details {
+    margin-bottom: 3rem;
+}
+
+.sidebar-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar-link {
+    display: block;
+    font-size: 1.1rem;
+    color: #f0ead6;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.sidebar-link:hover {
+    color: white;
+}
+
+
+/* Styles for inertial scroll UI */
+.scrollbar-track {
+    position: fixed;
+    top: 10%;
+    right: 50px;
+    width: 3px;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+    border-radius: 3px;
+}
+
+.scrollbar-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff4141;
+    height: 0;
+    border-radius: 3px;
+    transition: height 0.1s ease-out;
+    will-change: height;
+}
+
+.scroll-progress-number {
+    position: fixed;
+    top: 50%;
+    right: 60px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 11px;
+    font-family: monospace;
+    z-index: 1000;
+    opacity: 0.6;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.scroll-progress-number.active {
+    transform: translateY(-50%) scale(1.2);
+    opacity: 1;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #f0ead6;
+    color: #0a0a0a;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.back-to-top:hover {
+    background-color: #e0d6c0;
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-sidebar {
+        display: none;
+        /* Hide sidebar on smaller screens for a cleaner look */
+    }
+
+    .contact-container {
+        padding: 60px 3rem;
+        /* Revert padding for smaller screens */
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+}
